@@ -1,3 +1,4 @@
+//nested class
 class Behaviour{
     companion object {
         enum class Status{
@@ -27,16 +28,21 @@ class Behaviour{
     }
 }
 
+//main func
 fun main() {
+    //the data
     val mother = Personal("Sarah Endah",47, "female","mother")
     val father = Personal("Petruk Sudarsono", 50,"male","father")
     val son = Personal("Endi Liansyah",18,"male","son")
+    //array to store all of them
     val family = arrayListOf(mother,father,son)
+    //play the menu
     while (true){
         menu(family)
     }
 }
 
+//to show the menu's choices
 fun menu(family: ArrayList<Personal>){
     println("Welcome to the Stream Family")
     println("===================================")
@@ -52,6 +58,8 @@ fun menu(family: ArrayList<Personal>){
         3 -> childrenMenu(family,choice)
     }
 }
+
+//display the parental control
 fun parentMenu(family: ArrayList<Personal>, choice: Int?) {
     val index = choice?.minus(1)
     var param = 0
@@ -108,6 +116,7 @@ fun parentMenu(family: ArrayList<Personal>, choice: Int?) {
     }
 }
 
+//display the children status report
 fun childrenMenu(family: ArrayList<Personal>, choice: Int) {
     val index = choice-1
     val status = family[index].status
